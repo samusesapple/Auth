@@ -18,10 +18,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var appleAuthButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
     
+    @IBOutlet weak var logoutButton: UIButton!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
     }
     
 
@@ -52,6 +54,9 @@ class ViewController: UIViewController {
         print(#function)
     }
     
+    @IBAction func handleLogout(_ sender: Any) {
+        logoutKakaoTalk()
+    }
     
     // MARK: - Helpers
     func setUserInfo() {
@@ -65,5 +70,18 @@ class ViewController: UIViewController {
                     }
                 }
             }
+    
+    func logoutKakaoTalk() {
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                self.userNameLabel.text = "로그아웃 되었습니다."
+                print("카톡 로그아웃 성공")
+            }
+        }
+    }
+    
 }
 

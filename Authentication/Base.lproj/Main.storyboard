@@ -47,26 +47,39 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용자 이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCp-TS-Bpe">
-                                <rect key="frame" x="110" y="169" width="173" height="28.666666666666657"/>
+                                <rect key="frame" x="142" y="169" width="109.33333333333331" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16l-LT-v9R">
+                                <rect key="frame" x="158" y="683" width="77.333333333333314" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="b1E-Ic-yOO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Logout"/>
+                                <connections>
+                                    <action selector="handleLogout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a4k-w0-Ahp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Slq-J9-DxG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="16x-t9-P7w"/>
-                            <constraint firstItem="CCp-TS-Bpe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="69A-PV-Mdv"/>
                             <constraint firstItem="Slq-J9-DxG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6e7-wx-oJI"/>
+                            <constraint firstItem="16l-LT-v9R" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bzp-gQ-I9L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="16l-LT-v9R" secondAttribute="bottom" constant="100" id="OKY-3O-YQM"/>
+                            <constraint firstItem="CCp-TS-Bpe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i43-IG-n7Z"/>
                             <constraint firstItem="CCp-TS-Bpe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="olV-zd-erK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CCp-TS-Bpe" secondAttribute="trailing" constant="110" id="ymi-oH-N37"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appleAuthButton" destination="53n-b2-5dN" id="KW6-lc-4rP"/>
                         <outlet property="googleAuthButton" destination="Bbe-I7-N2Z" id="AOb-bT-77K"/>
                         <outlet property="kakaoTalkAuthButton" destination="jdY-vX-4F9" id="T9f-Eh-NnT"/>
+                        <outlet property="logoutButton" destination="16l-LT-v9R" id="Qch-mU-eed"/>
                         <outlet property="userNameLabel" destination="CCp-TS-Bpe" id="cwi-3R-BtV"/>
                     </connections>
                 </viewController>
