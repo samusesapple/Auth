@@ -9,5 +9,6 @@ target 'Authentication' do
 
 pod 'KakaoSDKAuth'  
 pod 'KakaoSDKUser'  
+pod 'GoogleSignIn'
 
 end

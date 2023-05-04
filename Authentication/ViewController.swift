@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import GoogleSignIn
 import KakaoSDKUser
 import KakaoSDKAuth
 import KakaoSDKCommon
+
 
 class ViewController: UIViewController {
 
@@ -47,7 +49,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func handleGoogleButton(_ sender: Any) {
-        print(#function)
+        let config = GIDConfiguration(clientID: "1084177995176-u7e6m7mud1fvtbtjdodcquoef80iatl3.apps.googleusercontent.com")
+        GIDSignIn.sharedInstance.configuration = config
+        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+            GIDSignIn.sharedInstance.signOut()
+            self.userNameLabel.text = "구글 로그아웃 완료"
+            return
+        }
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] user, error in
+            if let error = error { print(error); return }
+            self?.userNameLabel.text = user?.user.profile?.name
+        }
     }
     
     @IBAction func handleAppleButton(_ sender: Any) {
@@ -74,14 +86,14 @@ class ViewController: UIViewController {
     func logoutKakaoTalk() {
         UserApi.shared.logout {(error) in
             if let error = error {
+                self.userNameLabel.text = "카카오 로그인 정보 없음"
                 print(error)
             }
             else {
-                self.userNameLabel.text = "로그아웃 되었습니다."
+                self.userNameLabel.text = "카카오톡 로그아웃 완료"
                 print("카톡 로그아웃 성공")
             }
         }
     }
     
 }
-

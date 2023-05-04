@@ -14,6 +14,7 @@
 		F142B1972A024BB300338BD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F142B1952A024BB300338BD9 /* Main.storyboard */; };
 		F142B1992A024BB400338BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F142B1982A024BB400338BD9 /* Assets.xcassets */; };
 		F142B19C2A024BB400338BD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F142B19A2A024BB400338BD9 /* LaunchScreen.storyboard */; };
+		F152F7862A02768300357924 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152F7852A02768300357924 /* Utilites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F142B1982A024BB400338BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F142B19B2A024BB400338BD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F142B19D2A024BB400338BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F152F7852A02768300357924 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				F142B18F2A024BB300338BD9 /* AppDelegate.swift */,
 				F142B1912A024BB300338BD9 /* SceneDelegate.swift */,
 				F142B1932A024BB300338BD9 /* ViewController.swift */,
+				F152F7852A02768300357924 /* Utilites.swift */,
 				F142B1952A024BB300338BD9 /* Main.storyboard */,
 				F142B1982A024BB400338BD9 /* Assets.xcassets */,
 				F142B19A2A024BB400338BD9 /* LaunchScreen.storyboard */,
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F152F7862A02768300357924 /* Utilites.swift in Sources */,
 				F142B1942A024BB300338BD9 /* ViewController.swift in Sources */,
 				F142B1902A024BB300338BD9 /* AppDelegate.swift in Sources */,
 				F142B1922A024BB300338BD9 /* SceneDelegate.swift in Sources */,
