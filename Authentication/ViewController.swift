@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 import GoogleSignIn
 import KakaoSDKUser
 import KakaoSDKAuth
@@ -63,7 +64,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func handleAppleButton(_ sender: Any) {
-        print(#function)
+        // 요청 만들기
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        // 요청하는 컨트롤러 생성
+        let appleAuthController = ASAuthorizationController(authorizationRequests: [request])
+        // Delegate 채택
+        appleAuthController.delegate = self
+        //
+        appleAuthController.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+        // 유저에게 요청 보내기
+        appleAuthController.performRequests()
     }
     
     @IBAction func handleLogout(_ sender: Any) {
@@ -96,4 +108,20 @@ class ViewController: UIViewController {
         }
     }
     
+}
+
+extension ViewController: ASAuthorizationControllerDelegate {
+    // 성공한 경우 동작하는 코드
+        func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+            // 로그인 후 유저 정보 ASAuthorizationAppleIDCredential 타입으로 타입캐스팅 (애플 로그인이므로)
+            guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
+            if let fullName = credential.fullName {
+                userNameLabel.text = fullName.givenName
+            }
+        }
+        
+        // 실패한 경우 동작하는 코드
+        func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+            print("애플 로그인 실패")
+        }
 }
